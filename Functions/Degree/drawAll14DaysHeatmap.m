@@ -2,7 +2,7 @@ function [ res ] = drawAll14DaysHeatmap( num_groups )
 %DRAWALL14DAYSHEATMAP Summary of this function goes here
 %   Detailed explanation goes here
     load('TempData\DegreeData.mat');
-    res = zeros(num_groups, 4);
+    res = zeros(num_groups, 3);
     allDegree = [dshieldDegree;nonDshieldDegree];
     class = kmeans(log(allDegree+1), num_groups, 'start', 'uniform');
     classDShield = class([1:length(dshieldDegree)], :);

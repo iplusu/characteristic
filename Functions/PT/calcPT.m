@@ -1,18 +1,19 @@
 function [ mat ] = calcPT( list, th )
 %CALCPT Summary of this function goes here
 %   Detailed explanation goes here
-    listSize = size(list, 2);
-    mat = zeros(length(list), size(list, 2));
+    listHeight = size(list, 1);
+    listLength = size(list, 2);
+    mat = zeros(listHeight, listLength);
     min_size = 2;
     
     BBs = list >= th;
     GBs = list < th;
     
-    for idx1 = 1:listSize
-        GPB = zeros(length(list), listSize);
-        BPB = zeros(length(list), listSize);
+    for idx1 = 1:listLength
+        GPB = zeros(listHeight, listLength);
+        BPB = zeros(listHeight, listLength);
         
-        if  (idx1 == 1)     currentTrust = ones(length(list), 1);
+        if  (idx1 == 1)     currentTrust = ones(listHeight, 1);
         else                currentTrust = mat(:, idx1 - 1);
         end;
         
@@ -24,7 +25,7 @@ function [ mat ] = calcPT( list, th )
         GPB(:, 1) = sum(GBs(:, min_tmp:idx1), 2);
 
         max_size = getWindowSize(currentTrust);
-        for idx2 = 1:length(max_size);
+        for idx2 = 1:length(max_size)
             if (max_size(idx2,1) >= idx1)    max_tmp = 1;
             else                            max_tmp = idx1 - max_size(idx2, 1) + 1;
             end;

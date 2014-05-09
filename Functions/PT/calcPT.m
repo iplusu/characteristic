@@ -17,7 +17,7 @@ function [ mat ] = calcPT( list, th )
         else                currentTrust = mat(:, idx1 - 1);
         end;
         
-        if (min_size >= idx1)    min_tmp = 1;
+        if (min_size >= idx1)   min_tmp = 1;
         else                    min_tmp = idx1 - min_size + 1;
         end;
         %display(min_tmp);

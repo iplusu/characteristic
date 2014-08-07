@@ -1,4 +1,4 @@
-function [ avg ] = getAveragePT( grp, th )
+function [ avg, stdv ] = getAveragePT( grp, th )
 %GETAVERAGEPT Summary of this function goes here
 %   Detailed explanation goes here
     load('TempData/kmeans3Groups.mat');
@@ -16,5 +16,6 @@ function [ avg ] = getAveragePT( grp, th )
     
     mat = calcPT(mat, th);
     avg = mean(mat);
+    stdv = std(mat);
 end
 

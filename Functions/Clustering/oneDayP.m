@@ -12,11 +12,11 @@ undIP = unique(dIP);
 [t, ndIP] = ismember(dIP, undIP);
 
 tmpA = sparse(nsIP, ndIP, 1);
-d_Gb = sum(tmpA > 0, 2);
-d_Gb = full(d_Gb);
+% d_Gb = sum(tmpA > 0, 2);
+% d_Gb = full(d_Gb);
 
 Gp = 1 * (tmpA * tmpA') > 0;
 Sp = speye(length(unsIP));
 Gp = Gp - Sp; 
-Bp = 1*(tmpA>0);
-%Bp = [unsIP Bp];
+% Bp = 1*(tmpA>0);
+% Bp = [unsIP Bp];

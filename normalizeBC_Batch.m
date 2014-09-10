@@ -5,9 +5,9 @@ for i = 1:14
     disp(filename);
     [unsIP, Gp] = oneDayP(i);
     
-    norm = (bc - min(bc))/(max(bc) - min(bc));
-    save(filename, 'unsIP', 'bc', 'norm');
+    normalized = (bc - min(bc))/(max(bc) - min(bc));
+    save(filename, 'unsIP', 'bc', 'normalized');
     clear bc;
     clear unsIP;
-    clear norm;
+    clear normalized;
 end;
